@@ -1,0 +1,71 @@
+/* Import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?Muli&display=swap');
+
+/* Apply box-sizing to include padding and border in element's total size */
+* {
+    box-sizing: border-box;
+}
+
+/* Style for the body: center content and set font and layout properties */
+body {
+    font-family: 'Muli', sans-serif; /* Set font family */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Style for the main container */
+.container {
+    display: flex; /* Flexbox layout for panels */
+    width: 90vw; /* Set container width */
+    gap: 10px; /* Space between panels */
+    overflow: hidden; /* Hide overflowing content */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+/* Style for individual panels */
+.panel {
+    background-size: cover; /* Background image covers entire panel */
+    background-position: center; /* Center background image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    height: 100vh; /* Full viewport height */
+    border-radius: 50px; /* Rounded corners */
+    flex: 0.5; /* Default panel size */
+    position: relative; /* For positioning child elements */
+    transition: flex 1.5s ease-in; /* Smooth size change on interaction */
+    color: #fff; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 3px; /* Space around panels */
+}
+
+/* Style for text inside panels */
+.panel h3 {
+    position: absolute; /* Position at the bottom left */
+    bottom: 20px;
+    left: 20px;
+    opacity: 0; /* Hidden by default */
+}
+
+/* Style for active panel (expanded) */
+.panel.active {
+    flex: 5; /* Expand panel size */
+}
+
+/* Make text visible in the active panel */
+.panel.active h3 {
+    opacity: 1; /* Make text visible */
+    transition: opacity 0.4s ease-in 0.4s; /* Smooth fade-in effect */
+}
+
+/* Responsive styles for screens smaller than 480px */
+@media(max-width: 480px) {
+    .container {
+        width: 100vw; /* Full viewport width */
+    }
+
+    .panel:nth-of-type(4), .panel:nth-of-type(5) {
+        display: none; /* Hide extra panels */
+    }
+}
